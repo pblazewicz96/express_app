@@ -1,0 +1,32 @@
+extends ../layout
+
+//- -function prettyDate(dateString){
+//-     //if it's already a date object and not a string you don't need this line:
+//-     //- -var date = new Date(dateString);
+//-     -var d=date.getDate();
+//-     -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+//-     -var m=monthNames[date.getMonth()];
+//-     -var y=date.getFullYear();
+//-     -return d+' '+m+' '+y;
+//- -}
+
+block content
+  h1= title
+  nav   
+    ul 
+      li 
+        a(href='/admin/news/add') Dodaj artykuł
+  table
+    tr 
+      th id 
+      th tytuł
+      th data dodania
+      th akcja 
+    each item, index in data 
+      tr 
+        td= index
+        td= item.title
+        //- td #{prettyDate(item.created)}
+        td= item.created
+        td
+          a(href=`/admin/news/delete/${item._id}`) Usuń
